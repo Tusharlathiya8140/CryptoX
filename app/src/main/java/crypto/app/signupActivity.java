@@ -16,7 +16,7 @@ import androidx.core.view.WindowInsetsCompat;
 public class signupActivity extends AppCompatActivity {
 
     Button signup;
-    EditText email,password,confrimPassword,contact,name;
+    EditText email,password,confrimPassword,contact,name,city,state;
     TextView login;
     String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
 
@@ -28,6 +28,8 @@ public class signupActivity extends AppCompatActivity {
 
         name = findViewById(R.id.signup_name);
         contact = findViewById(R.id.signup_phone);
+        city = findViewById(R.id.signup_city);
+        state = findViewById(R.id.signup_state);
         email = findViewById(R.id.signup_email);
         password = findViewById(R.id.signup_password);
         confrimPassword = findViewById(R.id.signup_confirm_password);
@@ -46,8 +48,11 @@ public class signupActivity extends AppCompatActivity {
             public void onClick(View view) {
                 if(name.getText().toString().trim().equals("")){
                     name.setError("Name Required");
-                }
-                else if (contact.getText().toString().trim().equals("")) {
+                } else if (state.getText().toString().trim().equals("")) {
+                    state.setError("State Name Required");
+                }else if (city.getText().toString().trim().equals("")) {
+                    city.setError("City Name Required");
+                }else if (contact.getText().toString().trim().equals("")) {
                     contact.setError("Contact number Required");
                 }
                 else if (contact.getText().toString().trim().length()<10){

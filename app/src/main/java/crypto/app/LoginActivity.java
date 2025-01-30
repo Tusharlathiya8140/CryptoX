@@ -19,7 +19,7 @@ public class LoginActivity extends AppCompatActivity {
     String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
     EditText email, password;
     Button login;
-    TextView signup;
+    TextView signup, forgot;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -30,6 +30,8 @@ public class LoginActivity extends AppCompatActivity {
         password = findViewById(R.id.login_password);
         login = findViewById(R.id.login_btn);
         signup = findViewById(R.id.login_signup_btn);
+        forgot = findViewById(R.id.login_forgot);
+
 
         login.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -57,6 +59,14 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(LoginActivity.this ,signupActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        forgot.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(LoginActivity.this ,ForgotPasswordActivity.class);
                 startActivity(intent);
             }
         });

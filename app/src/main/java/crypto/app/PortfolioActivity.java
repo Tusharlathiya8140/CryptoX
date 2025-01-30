@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
-import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -12,7 +11,7 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
-public class DashboardActivity extends AppCompatActivity {
+public class PortfolioActivity extends AppCompatActivity {
 
     ImageView profile, notification, home, portfolio, trade, localexchange, wallet;
 
@@ -20,21 +19,21 @@ public class DashboardActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
-        setContentView(R.layout.activity_dashboard);
+        setContentView(R.layout.activity_portfolio);
 
-        profile = findViewById(R.id.dashboard_profile);
-        notification = findViewById(R.id.dashboard_notification);
-        home = findViewById(R.id.dashboard_home);
-        portfolio = findViewById(R.id.dashboard_portfolio);
-        trade = findViewById(R.id.dashboard_trade);
-        localexchange = findViewById(R.id.dashboard_localexchange);
-        wallet = findViewById(R.id.dashboard_wallet);
+        profile = findViewById(R.id.portfolio_profile);
+        notification = findViewById(R.id.portfolio_notification);
+        home = findViewById(R.id.portfolio_home);
+        portfolio = findViewById(R.id.portfolio_portfolio);
+        trade = findViewById(R.id.portfolio_trade);
+        localexchange = findViewById(R.id.portfolio_localexchange);
+        wallet = findViewById(R.id.portfolio_wallet);
 
 
         profile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(DashboardActivity.this,ProfileActivity.class);
+                Intent intent = new Intent(PortfolioActivity.this,ProfileActivity.class);
                 startActivity(intent);
             }
         });
@@ -42,7 +41,7 @@ public class DashboardActivity extends AppCompatActivity {
         notification.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(DashboardActivity.this,NotificationActivity.class);
+                Intent intent = new Intent(PortfolioActivity.this,NotificationActivity.class);
                 startActivity(intent);
             }
         });
@@ -50,22 +49,22 @@ public class DashboardActivity extends AppCompatActivity {
         home.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                recreate();
+                Intent intent = new Intent(PortfolioActivity.this,DashboardActivity.class);
+                startActivity(intent);
             }
         });
 
         portfolio.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(DashboardActivity.this,PortfolioActivity.class);
-                startActivity(intent);
+                recreate();
             }
         });
 
         trade.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(DashboardActivity.this,TradeActivity.class);
+                Intent intent = new Intent(PortfolioActivity.this,TradeActivity.class);
                 startActivity(intent);
             }
         });
@@ -73,7 +72,7 @@ public class DashboardActivity extends AppCompatActivity {
         localexchange.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(DashboardActivity.this,LocalexchangeActivity.class);
+                Intent intent = new Intent(PortfolioActivity.this,LocalexchangeActivity.class);
                 startActivity(intent);
             }
         });
@@ -81,13 +80,16 @@ public class DashboardActivity extends AppCompatActivity {
         wallet.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(DashboardActivity.this,WalletActivity.class);
+                Intent intent = new Intent(PortfolioActivity.this,WalletActivity.class);
                 startActivity(intent);
             }
         });
     }
     public void onBackPressed() {
         super.onBackPressed();
-        finishAffinity();
+        Intent intent = new Intent(PortfolioActivity.this, DashboardActivity.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP); // Clears the activity stack
+        startActivity(intent);
+        finish();
     }
 }

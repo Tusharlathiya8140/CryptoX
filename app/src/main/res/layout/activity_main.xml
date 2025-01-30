@@ -7,6 +7,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:layout_gravity="center"
+    android:fitsSystemWindows="true"
     tools:context=".MainActivity">
 
     <ImageView
@@ -30,7 +31,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="CryptoX"
+            android:text="Goldbee"
             android:textColor="@color/white"
             android:textSize="@dimen/_40sdp" />
 

@@ -4,5 +4,6 @@
     <color name="white">#FFFFFFFF</color>
     <color name="lightbg">#77B9D0</color>
     <color name="darkbg">#03A4DC</color>
+    <color name="red">#FF0000</color>
     <color name="trans">#A6FFFFFF</color>
 </resources>
